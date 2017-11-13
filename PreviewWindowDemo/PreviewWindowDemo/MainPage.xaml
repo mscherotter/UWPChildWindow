@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="PreviewWindowDemo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PreviewWindowDemo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <CommandBar>
+            <AppBarToggleButton Icon="Play" x:Name="OpenPaneButton" Checked="ShowPreview" Unchecked="HidePreview"/>
+        </CommandBar>
+        <SplitView x:Name="SplitView" Grid.Row="1" PanePlacement="Right" DisplayMode="Inline"  >
+            <SplitView.Pane>
+                <Grid Background="DarkGray">
+                    <local:PreviewControl Grid.Row="1" MaxHeight="500"/>
+                </Grid>
+            </SplitView.Pane>
+            <StackPanel Margin="8">
+                <TextBlock FontWeight="Bold" Text="A secondary window can be displayed in three different ways:"/>
+                <TextBlock Text="1. Docked to a side of the UI: best for tablet mode.  Same UI Thread"/>
+                <TextBlock Text="2. Floating inside of the Window. good for both tablet mode and desktop mode. Same UI Thread."/>
+                <TextBlock Text="3. Floating independent window.  Best for desktop mode especially with mutliple screens. Different UI Thread."></TextBlock>
+                <TextBlock Text="Press the button in the upper right corner to experiment with different styles."/>
+                <TextBlock FontWeight="Bold" Margin="0,8,0,0" Text="Notice this:"/>
+                <TextBlock Text="What happens when you switch between tablet and desktop mode?"/>
+                <TextBlock Text="How are the windows for the desktop mode different?"/>
+                <TextBlock Text="What happens when you close the windows? Does the order matter?"/>
+            </StackPanel>
+        </SplitView>
+        <Popup Grid.Row="1" x:Name="PreviewPopup" Width="320" Height="500">
+            <Border Width="320" Height="500" Background="DarkGray" x:Name="PreviewPopupContents" CornerRadius="8" BorderThickness="2" BorderBrush="Black">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <local:PreviewControl Grid.Row="1"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                        <AppBarButton Icon="OpenPane" Click="OpenPane" IsCompact="True"/>
+                        <AppBarButton Icon="NewWindow" Click="OnFloat" IsCompact="True"/>
+                        <AppBarButton x:Name="ClosePreviewButton" IsCompact="True" Click="ClosePreviewPopup">
+                            <AppBarButton.Icon>
+                                <FontIcon Glyph=""/>
+                            </AppBarButton.Icon>
+                    </AppBarButton>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Popup>
+    </Grid>
+</Page>
