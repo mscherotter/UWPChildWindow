@@ -12,3 +12,5 @@ Press the button in the upper right corner to experiment with different styles.
 What happens when you switch between tablet and desktop mode?
 How are the windows for the desktop mode different?
 What happens when you close the windows? Does the order matter?
+
+![App Screenshot](PreviewWindowScreenShot.png)

@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreviewWindowDemo", "Previe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C3F10218-21D8-4415-B07F-02970547EB0F}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\OneDrive\Pictures\Screenshots\PreviewWindowScreenShot.png = ..\..\..\..\OneDrive\Pictures\Screenshots\PreviewWindowScreenShot.png
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
